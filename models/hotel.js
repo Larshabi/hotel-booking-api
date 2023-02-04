@@ -46,7 +46,7 @@ const hotelSchema = new Schema({
     },
     featured: {
         type: Boolean,
-        default: False
+        default: false
     }
 }, {
     timestamps: true

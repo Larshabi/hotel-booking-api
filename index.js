@@ -4,6 +4,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const ErrorHandler = require('./util/ErrorHandler');
+const RouteV1 = require('./routes/index');
 
 const app = express();
 

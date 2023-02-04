@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const createError = require('./error');
 
-export const authorization = async(req, res, next) => {
+exports.authorization = async(req, res, next) => {
     try {
         const token = req.cookies.access_token;
         if (!token) {
@@ -21,7 +21,7 @@ export const authorization = async(req, res, next) => {
     }
 }
 
-export const verifyUser = (req, res, next) => {
+exports.verifyUser = (req, res, next) => {
     authorization(req, res, () => {
         if (req.user._id !== req.params.id || req.user.isAdmin) {
             next()
@@ -31,7 +31,7 @@ export const verifyUser = (req, res, next) => {
     })
 }
 
-export const verifyAdmin = (req, res, next) => {
+exports.verifyAdmin = (req, res, next) => {
     authorization(req, res, () => {
         if (req.user.isAdmin) {
             next()
